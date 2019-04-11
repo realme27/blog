@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="~{header::header}"></div>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>email</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr th:if="${userModel.userList.size() eq 0}">
+                <td colspan="3">没有用户信息</td>
+            </tr>
+            <tr th:each="user:${userModel.userList}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.email}"></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div th:replace="~{footer::footer}"></div>
+</body>
+</html>
